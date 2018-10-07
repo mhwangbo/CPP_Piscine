@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Player.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:08:18 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:24:36 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/06 16:00:43 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/06 16:07:47 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#include "Player.hpp"
 #include <iostream>
+#include <ncurses.h>
 
-int
-main(void)
-{
-    Zombie      *random;
-    Zombie      *notRd;
-    ZombieEvent zombie_event;
-
-    zombie_event.setZombieType("rotten");
-    random = zombie_event.randomChump();
-    random->announce();
-    delete random;
-
-    zombie_event.setZombieType("running");
-    notRd = zombie_event.newZombie("Bad One");
-    notRd->announce();
-    delete notRd;
-    return (0);
+Player::Player() {
+	return ;
 }
+
+Player::Player(std::string name, int health, int attack, int size, int color, int x, int y) :
+	Ship(name, health, attack, size, color, x, y) {
+	return ;
+}
+
+Player::~Player() {
+	return ;
+}
+
+Player(Player const & copy) {
+	*this = copy;
+}
+
+void	Player::move(int direction);
+void	Player::shoot();
+void	Player::takeDamage();

@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:05:15 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:37:24 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/02 20:27:55 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/02 21:18:30 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Human.hpp"
 
-Zombie::Zombie(void)
+Human::Human(void)
+{
+	Brain	tmp;
+	this->_brain = tmp;
+}
+
+Human::~Human(void)
 {
 	return ;
 }
 
-Zombie::~Zombie(void)
+Brain const&	Human::getBrain(void)
 {
-	return ;
+    return (this->_brain);
 }
 
-void	Zombie::setZombieType(std::string type)
+std::string	Human::identify(void)
 {
-	this->_type = type;
-}
-
-void	Zombie::setZombieName(std::string name)
-{
-	this->_name = name;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << "<" << this->_name << " (" << this->_type << ")> ";
-	std::cout << "Braiiiiiiinnnssss..." << std::endl;
+	return(this->_brain.identify());
 }

@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:05:15 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:37:24 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/02 18:54:46 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/02 19:24:42 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-Zombie::Zombie(void)
-{
-	return ;
-}
+# include "Zombie.hpp"
 
-Zombie::~Zombie(void)
-{
-	return ;
-}
+class	ZombieHorde {
 
-void	Zombie::setZombieType(std::string type)
-{
-	this->_type = type;
-}
+public:
+	ZombieHorde(int	N);
+	~ZombieHorde(void);
+	void		announce(void);
+	std::string	randomChump(void);
 
-void	Zombie::setZombieName(std::string name)
-{
-	this->_name = name;
-}
+private:
+	int		_n;
+	Zombie	*_zombies;
+};
 
-void	Zombie::announce(void)
-{
-	std::cout << "<" << this->_name << " (" << this->_type << ")> ";
-	std::cout << "Braiiiiiiinnnssss..." << std::endl;
-}
+#endif

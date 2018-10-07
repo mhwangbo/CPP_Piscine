@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:08:18 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:24:36 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/02 20:02:16 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/02 21:17:53 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+
 #include <iostream>
 
-int
-main(void)
+class	Brain
 {
-    Zombie      *random;
-    Zombie      *notRd;
-    ZombieEvent zombie_event;
+	public:
+		Brain(void);
+		~Brain(void);
+		std::string	identify(void) const;
 
-    zombie_event.setZombieType("rotten");
-    random = zombie_event.randomChump();
-    random->announce();
-    delete random;
+	private:
+};
 
-    zombie_event.setZombieType("running");
-    notRd = zombie_event.newZombie("Bad One");
-    notRd->announce();
-    delete notRd;
-    return (0);
-}
+#endif

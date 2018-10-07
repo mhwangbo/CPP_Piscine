@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:05:15 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:37:24 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/02 23:32:42 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/02 23:40:51 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "HumanB.hpp"
 
-Zombie::Zombie(void)
+HumanB::HumanB(std::string name) : _name(name)
+{
+}
+
+HumanB::~HumanB(void)
 {
 	return ;
 }
 
-Zombie::~Zombie(void)
+void	HumanB::attack(void)
 {
-	return ;
+	std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
 }
 
-void	Zombie::setZombieType(std::string type)
+void	HumanB::setWeapon(Weapon& n_weapon)
 {
-	this->_type = type;
-}
-
-void	Zombie::setZombieName(std::string name)
-{
-	this->_name = name;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << "<" << this->_name << " (" << this->_type << ")> ";
-	std::cout << "Braiiiiiiinnnssss..." << std::endl;
+	this->_weapon = &n_weapon;
 }

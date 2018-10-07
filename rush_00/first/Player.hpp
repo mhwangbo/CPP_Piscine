@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Player.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:05:15 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:37:24 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/06 15:34:51 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/06 16:07:29 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#ifndef PLAYER_HPP
+# define PLAYER_HPP
+# include "Ship.hpp"
 
-Zombie::Zombie(void)
+class	Player : public Ship
 {
-	return ;
-}
+	public:
+		Player();
+		Player(std::string name, int health, int attack, int size, int color, int x, int y);
+		~Player();
+		Player(Player const & copy);
+		using Ship::operator=;
 
-Zombie::~Zombie(void)
-{
-	return ;
-}
+		void	move(int direction);
+		void	shoot();
+		void	takeDamage();
+};
 
-void	Zombie::setZombieType(std::string type)
-{
-	this->_type = type;
-}
-
-void	Zombie::setZombieName(std::string name)
-{
-	this->_name = name;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << "<" << this->_name << " (" << this->_type << ")> ";
-	std::cout << "Braiiiiiiinnnssss..." << std::endl;
-}
+#endif

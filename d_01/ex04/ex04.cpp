@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:08:18 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:24:36 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/02 19:51:56 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/02 20:01:53 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
 #include <iostream>
 
-int
-main(void)
+int		main(void)
 {
-    Zombie      *random;
-    Zombie      *notRd;
-    ZombieEvent zombie_event;
+	std::string	str = "HI THIS IS BRAIN";
+	std::string	*pointer = &str;
+	std::string	&reference = str; 
 
-    zombie_event.setZombieType("rotten");
-    random = zombie_event.randomChump();
-    random->announce();
-    delete random;
+	std::cout << str << std::endl;
+	std::cout << *pointer << std::endl;
+	std::cout << reference << std::endl;
 
-    zombie_event.setZombieType("running");
-    notRd = zombie_event.newZombie("Bad One");
-    notRd->announce();
-    delete notRd;
-    return (0);
+	return (0);
 }

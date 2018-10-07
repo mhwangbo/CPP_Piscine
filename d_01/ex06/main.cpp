@@ -5,30 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:08:18 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:24:36 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/02 21:30:33 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/02 21:45:43 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
-#include <iostream>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-int
-main(void)
+int main()
 {
-    Zombie      *random;
-    Zombie      *notRd;
-    ZombieEvent zombie_event;
-
-    zombie_event.setZombieType("rotten");
-    random = zombie_event.randomChump();
-    random->announce();
-    delete random;
-
-    zombie_event.setZombieType("running");
-    notRd = zombie_event.newZombie("Bad One");
-    notRd->announce();
-    delete notRd;
-    return (0);
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 }

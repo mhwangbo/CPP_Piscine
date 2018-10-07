@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:08:18 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:24:36 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/06 13:35:36 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/06 16:18:53 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
 #include <iostream>
+#include <ncurses.h>
 
-int
-main(void)
+int		main(void)
 {
-    Zombie      *random;
-    Zombie      *notRd;
-    ZombieEvent zombie_event;
+	int	health = 5;
 
-    zombie_event.setZombieType("rotten");
-    random = zombie_event.randomChump();
-    random->announce();
-    delete random;
+	initscr();
+	WINDOW * win = newwin(3, 12, 1, 1);
+	box(win, '|', '-');
+	mvwprintw(win, 0, 3, "HEALTH");
+	for (int i = 0, x = 1, y = 1; i < health; i++, x += 2)
+		mvwprintw(win, y, x, "o");
+	refresh();
+	wrefresh (win);
+	getch();
+	endwin();
 
-    zombie_event.setZombieType("running");
-    notRd = zombie_event.newZombie("Bad One");
-    notRd->announce();
-    delete notRd;
-    return (0);
+	return 0;
 }

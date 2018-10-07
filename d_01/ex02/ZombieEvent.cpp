@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/02 17:06:28 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/04 17:01:50 by mhwangbo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ZombieEvent.hpp"
 #include <cstdlib>
-#include <time.h>
 
 ZombieEvent::ZombieEvent(void) {
 	return ;
@@ -26,15 +37,10 @@ Zombie		*ZombieEvent::newZombie(std::string name)
 
 Zombie		*ZombieEvent::randomChump(void)
 {
+	int	i;
+	 std::string names[10] = {"Janise", "Dagny", "Ferdinand", "Lilli", "Phil", "Saran", "Ulrike", "Annamae", "Minerva", "Daryl"};
+
 	srand(time(NULL));
-	int	random_length = rand() % 10 + 1;
-	char	name[random_length];
-	
-	for (int i = 0; i < random_length; i++)
-	{
-		name[i] = (rand() % 26) + 97;
-	}
-	name[0] = toupper(name[0]);
-	std::string ret(name, random_length);
-	return (new Zombie(ret, this->_type));
+    i = rand() % 10;
+	return (new Zombie(names[i], this->_type));
 }

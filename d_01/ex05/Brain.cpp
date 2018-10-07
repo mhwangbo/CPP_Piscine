@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhwangbo <mhwangbo@student.42.us.org>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 17:05:15 by mhwangbo          #+#    #+#             */
-/*   Updated: 2018/10/02 19:37:24 by mhwangbo         ###   ########.fr       */
+/*   Created: 2018/10/02 20:13:16 by mhwangbo          #+#    #+#             */
+/*   Updated: 2018/10/02 21:17:37 by mhwangbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-#include <iostream>
+#include "Brain.hpp"
+#include <sstream>
+#include <string>
 
-Zombie::Zombie(void)
+Brain::Brain(void)
 {
 	return ;
 }
 
-Zombie::~Zombie(void)
+Brain::~Brain(void)
 {
 	return ;
 }
 
-void	Zombie::setZombieType(std::string type)
+std::string	Brain::identify(void) const
 {
-	this->_type = type;
-}
-
-void	Zombie::setZombieName(std::string name)
-{
-	this->_name = name;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << "<" << this->_name << " (" << this->_type << ")> ";
-	std::cout << "Braiiiiiiinnnssss..." << std::endl;
+	std::stringstream s;
+	s << this;
+	return(s.str());
 }
